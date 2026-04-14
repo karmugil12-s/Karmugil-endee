@@ -1,0 +1,7 @@
+[
+{"id": 1, "text": "Artificial Intelligence is the simulation of human intelligence.", "metadata": {"topic": "AI"}},
+{"id": 2, "text": "Machine Learning allows systems to learn from data.", "metadata": {"topic": "ML"}},
+{"id": 3, "text": "Deep Learning uses neural networks for complex tasks.", "metadata": {"topic": "DL"}},
+{"id": 4, "text": "Vector databases store embeddings for similarity search.", "metadata": {"topic": "DB"}},
+{"id": 5, "text": "Semantic search finds meaning rather than keywords.", "metadata": {"topic": "Search"}}
+]
