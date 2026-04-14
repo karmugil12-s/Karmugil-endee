@@ -1,100 +1,95 @@
-# Endee Internship Submission: Semantic Search Engine
+# 🔍 Semantic Search Web App
 
-## 🏆 Project Overview
-**Semantic Search Engine powered by Endee Vector Database**
+A simple and efficient **Semantic Search Engine** built using **Flask** and **TF-IDF (Machine Learning)**.  
+This app allows users to search for information based on **meaning**, not just exact keywords.
 
-This project demonstrates core Endee capabilities:
-- **Vector Embeddings**: Convert text to dense vectors (384-dim)
-- **Storage**: Upsert to Endee index (HNSW + cosine similarity)
-- **Retrieval**: Semantic search for top-k similar docs
-- **Web Demo**: Flask UI for interactive queries
+---
 
-Built as simple Python app inside Endee repo. Perfect 24h internship project.
+## 🚀 Features
 
-## ✨ Features
-- ✅ Local embeddings (no API keys): `sentence-transformers/all-MiniLM-L6-v2`
-- ✅ Endee REST API integration: create index, upsert, search
-- ✅ 50 AI/vector DB sample docs (synthetic dataset)
-- ✅ Web UI: Query -> ranked results w/ scores + metadata
-- ✅ Payload filtering ready (demo-ready)
-- ✅ Optional RAG hook (add LLM prompt on results)
+- 🔎 Search based on **semantic similarity**
+- ⚡ Fast and lightweight
+- 🌐 Simple web interface using Flask
+- 📄 No separate frontend files (HTML embedded)
+- 🧠 Uses TF-IDF and Cosine Similarity
 
-## 🛠 How to Run (5 mins)
+---
 
-### 1. Start Endee Server
+## 🛠️ Tech Stack
+
+- Python 🐍
+- Flask 🌐
+- Scikit-learn 🤖
+
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+
 ```bash
-cd Manojkrishna-endee
-docker compose up -d  # or ./install.sh --release --avx2 && ./run.sh
-```
-Verify: `curl http://localhost:8080/api/v1/health` → `ok`
+git clone https://github.com/your-username/semantic-search-app.git
+cd semantic-search-app
 
-### 2. Setup Project
-```bash
-cd ../internship_demo  # or /home/mk/Documents/endee/internship_demo
-pip install -r requirements.txt
-```
 
-### 3. Initialize Data
-```
-curl http://localhost:5000/init
-```
-Creates index `internship_demo` + upserts 50 docs.
 
-### 4. Run Demo
-```bash
-python app.py
-```
-Open http://localhost:5000 → Search!
 
-## 🔍 How Vector Search Works Here
-1. **Docs** → sentence-transformers → 384-dim vectors
-2. **Store** in Endee: `POST /index/internship_demo/upsert`
-3. **Query** → embed → `POST /search` → HNSW finds top-k cosine similar
-4. **Results**: Docs + similarity scores (higher = more relevant)
+Projext Structure 
 
-**Endee Index Config**: 
-```
-dimension: 384, metric: cosine
-HNSW: M=16, ef_construction=128, ef=64
-```
+semantic-search-app/
+│── app.py
+│── requirements.txt
+│── README.md
+│
+├── templates/
+│   └── index.html
+│
+└── static/
+    └── style.css
 
-## 📱 Sample Demo
-**Query**: \"What is vector search?\"
 
-**Top Results**:
-```
-ID 1 (score: 0.854)
-\"Vector search finds similar items using embeddings...\" 
-category: vector_search
+Liscence 
 
-ID 2 (score: 0.723) 
-\"Embeddings are dense numerical representations...\" 
-category: embeddings
-```
 
-## 🏗 Project Structure
-```
-internship_demo/
-├── app.py          # Flask + Endee logic
-├── requirements.txt
-├── README.md
-└── data/
-    └── sample_docs.json  # 50 AI docs
-```
+---
 
-## 🔧 Extensibility
-- **Filter**: Add `&filter={"category": {"$eq": "endee"}}`
-- **RAG**: Feed results to LLM: `prompt = f\"Answer using: {results}\"`.
-- **Scale**: 1M+ docs easy with Endee production config.
+# 💡 Small tip (important)
+Before uploading:
+- Replace `your-username` with your GitHub username  
+- Add your name in **Author section**
 
-## 📈 Why This Rocks for Internship
-- ✅ Uses **Endee core**: vectors/storage/retrieval
-- ✅ Production-ready code patterns
-- ✅ Zero-config demo
-- ✅ Clear vector DB explanation
-- ✅ Extensible to real RAG/agent apps
-## Author
-Manojkrishna M
+---
 
-**Built with ❤️ for Endee team. Ready for production!**
+If you want, I can also:
+- Make a **GitHub description + tags**
+- Create a **cool project banner**
+- Or upgrade this into a **resume-level project**
 
+Just tell me 👍
+
+
+Step 1: Document Storage
+A predefined list of documents is stored inside the application. These documents act as the dataset from which results are retrieved.
+
+Step 2: Text Vectorization (TF-IDF)
+All documents are converted into numerical vectors using TF-IDF (Term Frequency – Inverse Document Frequency).
+In this process, important words get higher weight, while common words get lower weight. Each sentence is transformed into a numerical representation.
+
+Step 3: User Query Input
+The user enters a search query through the web interface, such as "repair phone".
+
+Step 4: Query Vectorization
+The user’s query is also converted into a vector using the same TF-IDF model so that it can be compared with the document vectors.
+
+Step 5: Similarity Calculation
+The system calculates cosine similarity between the query vector and all document vectors.
+The similarity score ranges from 0 to 1, where a higher score indicates a more relevant match.
+
+Step 6: Ranking Results
+All documents are ranked based on their similarity scores in descending order, so the most relevant results appear first.
+
+Step 7: Display Results
+The top matching results are displayed to the user in the web interface.
+
+## Author 
+Karmugil S
