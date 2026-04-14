@@ -90,6 +90,6 @@ All documents are ranked based on their similarity scores in descending order, s
 
 Step 7: Display Results
 The top matching results are displayed to the user in the web interface.
-
-## Author 
+```
+### Author 
 Karmugil S
